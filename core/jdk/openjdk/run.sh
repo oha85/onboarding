@@ -1,7 +1,6 @@
 #!/bin/bash
-
-./jdk/openjdk/_/download_8-472-b0.sh
-./jdk/openjdk/_/download_11-030-7.sh
-./jdk/openjdk/_/download_17-018-8.sh
-./jdk/openjdk/_/download_21-010-7.sh
-./jdk/openjdk/_/download_25-02-10.sh
+core/jdk/openjdk/download/8-472-b0.sh
+core/jdk/openjdk/download/11-030-7.sh
+core/jdk/openjdk/download/17-018-8.sh
+core/jdk/openjdk/download/21-010-7.sh
+core/jdk/openjdk/download/25-02-10.sh

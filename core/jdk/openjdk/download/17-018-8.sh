@@ -1,4 +1,4 @@
 #!/bin/bash
 url=https://github.com/adoptium/temurin17-binaries/releases/download/jdk-17.0.18%2B8/OpenJDK17U-jdk_x64_linux_hotspot_17.0.18_8.tar.gz
 
-./jdk/openjdk/_/_download.sh $url
+core/jdk/openjdk/download/_download.sh $url
