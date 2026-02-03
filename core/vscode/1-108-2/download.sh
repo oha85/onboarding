@@ -1,3 +1,3 @@
 #!/bin/bash
 url=https://vscode.download.prss.microsoft.com/dbazure/download/stable/c9d77990917f3102ada88be140d28b038d1dd7c7/code_1.108.2-1769004815_amd64.deb
-core/vscode/download/_download.sh $url
+core/vscode/_download.sh $url
