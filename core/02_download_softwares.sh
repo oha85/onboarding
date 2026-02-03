@@ -6,13 +6,13 @@ if [[ $REPLY =~ ^[Yy] ]]; then
 fi
 echo
 
-read -p "Please confirm by pushing [Y] button to start downloading maven versions:" -n 1 -r
+read -p "Please confirm by pushing [Y] button to start downloading maven versions: " -n 1 -r
 if [[ $REPLY =~ ^[Yy]$ ]]; then
    core/maven/run.sh
 fi
 echo
 
-read -p "Please confirm by pushing [Y] button to start downloading vscode" -n 1 -r
+read -p "Please confirm by pushing [Y] button to start downloading vscode: " -n 1 -r
 if [[ $REPLY =~ ^[Yy]$ ]]; then
    core/vscode/run.sh
 fi
