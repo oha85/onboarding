@@ -1,2 +1,2 @@
 #!/bin/bash
-core/maven/download/8-9-12.sh
+core/maven/3-9-12/download.sh
