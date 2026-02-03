@@ -1,5 +1,4 @@
 #!/bin/bash
-
 url=$1
 openjdk_version=OpenJDK$(echo $url | grep -Po 'OpenJDK\K\d+')
 echo
