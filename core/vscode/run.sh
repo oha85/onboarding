@@ -1,3 +1,2 @@
 #!/bin/bash
-
-./vscode/_/download_1-108-2.sh
+core/vscode/download/1-108-2.sh
