@@ -1,0 +1,3 @@
+1. Lire tous les fichiez zip dans le répertoire download.
+2. Unzip all tar.gz files to specific location.
+3. Remove tar.gz

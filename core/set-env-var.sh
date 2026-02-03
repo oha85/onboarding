@@ -16,11 +16,3 @@ export MAVEN_HOME=$MAVEN_HOME_3912
 export GITLAB_HOME=$MEDIA_DATA_DIR_DEV/gitlab
 
 export PATH=$PATH:$JAVA_HOME/bin:$MAVEN_HOME/bin
-
-lss() {
-ls -a --group-directories-first
-}
-
-lls() {
-ls -la --group-directories-first
-}
