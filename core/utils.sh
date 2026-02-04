@@ -30,7 +30,6 @@ getOpenJdkVersion() {
 #  echo jdk21: $(_getSubstring $jdk21 $pattern)
 #  echo
 #  echo jdk25: $(_getSubstring $jdk25 $pattern)
-          
 }
 
 #$1: url of software
