@@ -5,6 +5,11 @@ isPathExists() {
      echo "true"
   fi
 }
+isPathNotExists() {
+  if [[ $(isPathExists $1) != "true" ]]; then
+     echo "true"
+  fi
+}
 
 #$1: String to substruct
 #$2: Pattern to use for substructing
