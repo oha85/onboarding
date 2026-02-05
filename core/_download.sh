@@ -1,6 +1,7 @@
 #!/bin/bash
 url=$1
-source core/utils.sh
+source core/_utils/softwareUtils.sh
+source core/_utils/pathUtils.sh
 echo
 software_version=$(getSoftwareVersion $url)
 echo "Would you like to download" $software_version "?"

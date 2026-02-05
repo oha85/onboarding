@@ -1,5 +1,5 @@
 #!/bin/bash
-source core/utils.sh
+source core/_utils/pathUtils.sh
 DOWNLOADS_DIR="$HOME_LAB/downloads"
 if [[ "$(isPathNotExists "$DOWNLOADS_DIR" eq "true" )" ]]; then
   echo "$HOME_LAB/downloads doesn't exist."
@@ -21,8 +21,7 @@ else
         core/jdk/openjdk/unzip.sh $file 
       ;;
       apache-maven*)
-        echo apacha-maven
-        #core/jdk/maven/unzip.sh $file 
+        core/maven/unzip.sh $file 
       ;;
       code_*)
         echo code_

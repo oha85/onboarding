@@ -1,7 +1,7 @@
 #!/bin/bash
-source core/utils.sh
+source core/_utils/pathUtils.sh
+source core/_utils/softwareUtils.sh
 DOWNLOADS_DIR="$HOME_LAB/downloads"
-UNZIPPED_DIR="$DOWNLOADS_DIR/unzipped"
 DEV_DIR="$HOME_LAB/dev"
 JDK_DIR="$DEV_DIR/jdk"
 OPENJDK_DIR="$JDK_DIR/openjdk"
