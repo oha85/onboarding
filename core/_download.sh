@@ -11,10 +11,9 @@ if ! [[ $REPLY =~ ^[Yy]$ ]]; then
    echo $software "download is cancelled."
    exit
 else
-  if [[ "$(isPathExists $HOME_LAB/downloads)" ]]; then
-    wget -P $HOME_LAB/downloads $url
-  else
-    echo "$HOME_LAB/downloads doesn't exist. Please create it before"
+  if [[ "$(isPathNotExists $HOME_LAB/downloads)" ]]; then
+    mkdir $HOME_LAB/downloads
   fi 
+  wget -P $HOME_LAB/downloads $url
 fi
 
