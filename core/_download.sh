@@ -13,6 +13,7 @@ if ! [[ $REPLY =~ ^[Yy]$ ]]; then
 else
   if [[ "$(isPathNotExists $HOME_LAB/downloads)" ]]; then
     mkdir $HOME_LAB/downloads
+    mkdir $HOME_LAB/downloads/unzipped
   fi 
   wget -P $HOME_LAB/downloads $url
 fi

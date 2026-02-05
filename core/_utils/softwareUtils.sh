@@ -6,18 +6,24 @@ getOpenJdkVersion() {
   local pattern='_hotspot_\K.+(?=\.tar\.gz)'
   getSubstring $1 $pattern
 }
-
 #$1: Maven full name
 getMavenVersion() {
-  local pattern='apache-maven-\K\d+\.\d+\.\d+(?=\.tar\.gz)'
-  getSubstring $1 $pattern
+   local pattern='apache-maven-\K.+(?=\-bin)'
+   getSubstring $1 $pattern
 }
-
+getMavenFileNameWithoutSuffix() {
+   local pattern='\K.+(?=\-bin)'
+   getSubstring $1 $pattern
+}
+#$1: Filename
+getVscodeVersion() {
+   echo $1 | grep -Eo 'code_[0-9]+\.[0-9]+\.[0-9]'
+}
 #$1: url of software
 getSoftwareVersion() {
-  local openjdk_version=$(echo $1 | grep -Po 'OpenJDK\K\d+')
-  local maven_version=$(echo $1 | grep -Po 'apache-maven-\K\d+')
-  local vscode_version=$(echo $1 | grep -Eo 'code_[0-9]+\.[0-9]+\.[0-9]')
+  local openjdk_version=$(getOpenJdkVersion $1)
+  local maven_version=$(getMavenVersion $1)
+  local vscode_version=$(getVscodeVersion $1)
   if [ -n "$openjdk_version" ]; then
      echo $"OpenJDK$openjdk_version"
   elif [ -n "$maven_version" ]; then
