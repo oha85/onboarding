@@ -11,12 +11,12 @@ if ! [[ $REPLY =~ ^[Yy]$ ]]; then
    echo $software "download is cancelled."
    exit
 else
-  if [[ "$(isPathNotExists $HOME_LAB/downloads)" ]]; then
-    mkdir $HOME_LAB/downloads
-    mkdir $HOME_LAB/downloads/unzipped
+  if [[ "$(isPathNotExists $DOWNLOADS_DIR)" ]]; then
+    mkdir $DOWNLOADS_DIR
+    mkdir $UNZIPPED_DIR
   fi 
   if [[ "$(isFileNotDownloadedYet $url)" ]]; then
-    wget -P $HOME_LAB/downloads $url
+    wget -P $DOWNLOADS_DIR $url
   else {
     echo "File already downloaded. Skipping download."
     exit 0

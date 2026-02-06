@@ -1,9 +1,7 @@
 #!/bin/bash
 source core/_utils/softwareUtils.sh
 source core/_utils/pathUtils.sh
-DOWNLOADS_DIR="$HOME_LAB/downloads"
-UNZIPPED_DIR="$DOWNLOADS_DIR/unzipped"
-DEV_DIR="$HOME_LAB/dev"
+
 MAVEN_DIR="$DEV_DIR/maven"
 if [[ "$(isPathNotExists "$MAVEN_DIR" eq "true" )" ]]; then
     mkdir $MAVEN_DIR

@@ -1,16 +1,14 @@
 #!/bin/bash
 source core/_utils/pathUtils.sh
-DOWNLOADS_DIR="$HOME_LAB/downloads"
 if [[ "$(isPathNotExists "$DOWNLOADS_DIR" eq "true" )" ]]; then
-  echo "$HOME_LAB/downloads doesn't exist."
+  echo "$DOWNLOADS_DIR doesn't exist."
   exit 1
 else
-  DEV_DIR=$HOME_LAB/dev
   if [[ "$(isPathNotExists "$DEV_DIR" eq "true" )" ]]; then
     mkdir $DEV_DIR
     echo "$DEV_DIR created."
   fi
-  files=$(find $HOME_LAB/downloads/ -type f -name "*.tar.gz" -printf '%f\n')
+  files=$(find $DOWNLOADS_DIR/ -type f -name "*.tar.gz" -printf '%f\n')
   if [ -z "$files" ]; then
     echo "$DOWNLOADS_DIR doesn't contain any file to unzip."
     exit 1

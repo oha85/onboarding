@@ -1,8 +1,7 @@
 #!/bin/bash
 source core/_utils/pathUtils.sh
 source core/_utils/softwareUtils.sh
-DOWNLOADS_DIR="$HOME_LAB/downloads"
-DEV_DIR="$HOME_LAB/dev"
+
 JDK_DIR="$DEV_DIR/jdk"
 OPENJDK_DIR="$JDK_DIR/openjdk"
 if [[ "$(isPathNotExists "$JDK_DIR" eq "true" )" ]]; then

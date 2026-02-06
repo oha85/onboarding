@@ -41,7 +41,7 @@ getFileNameFromUrl() {
 #$1: tar.gz Filename
 isFileNotDownloadedYet() {
    local filenameFromUrl=$(getFileNameFromUrl $1)
-   local filenameFromPath=$(ls "$HOME_LAB/downloads/$filenameFromUrl" 2>/dev/null)
+   local filenameFromPath=$(ls "$DOWNLOADS_DIR/$filenameFromUrl" 2>/dev/null)
    if [[ -z "$filenameFromPath" ]]; then
      echo "true"
    fi
