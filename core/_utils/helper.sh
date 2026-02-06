@@ -5,3 +5,4 @@
 getSubstring() {
   echo "$1" | grep -oP "$2"
 }
+export TEST_PATH="/home/oualaa/media/DATA/ubuntu/"

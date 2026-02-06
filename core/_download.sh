@@ -15,6 +15,11 @@ else
     mkdir $HOME_LAB/downloads
     mkdir $HOME_LAB/downloads/unzipped
   fi 
-  wget -P $HOME_LAB/downloads $url
+  if [[ "$(isFileNotDownloadedYet $url)" ]]; then
+    wget -P $HOME_LAB/downloads $url
+  else {
+    echo "File already downloaded. Skipping download."
+    exit 0
+  }
+  fi
 fi
-

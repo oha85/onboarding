@@ -34,3 +34,15 @@ getSoftwareVersion() {
      echo "Erreur - Unknown software"
   fi
 }
+#$1: URL to tar.gz file
+getFileNameFromUrl() {
+   echo $1 | grep -Eo '[^/]+\.tar\.gz$' 
+}
+#$1: tar.gz Filename
+isFileNotDownloadedYet() {
+   local filenameFromUrl=$(getFileNameFromUrl $1)
+   local filenameFromPath=$(ls "$HOME_LAB/downloads/$filenameFromUrl" 2>/dev/null)
+   if [[ -z "$filenameFromPath" ]]; then
+     echo "true"
+   fi
+}
