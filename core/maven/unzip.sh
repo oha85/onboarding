@@ -11,6 +11,7 @@ file=$1
 if [[ "$(isPathExists "$MAVEN_DIR" eq "true" )" ]]; then
   maven_version=$(getMavenVersion $file)
   maven_filename_without_extension=$(getMavenFileNameWithoutSuffix $file)
+  # FIXME: Doesn't untar when the file doesn't exist.
   tar -xzvf "$DOWNLOADS_DIR/$file" -C $MAVEN_DIR
   mv "$MAVEN_DIR/$maven_filename_without_extension" "$MAVEN_DIR/$maven_version"
   mv "$DOWNLOADS_DIR/$file" "$UNZIPPED_DIR/"

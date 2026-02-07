@@ -1,5 +1,6 @@
 #!/bin/bash
 source core/_utils/pathUtils.sh
+
 if [[ "$(isPathNotExists $HOME_LAB)" ]]; then
   echo "Please set HOME_LAB environment variable before running this script."
   exit 1;
