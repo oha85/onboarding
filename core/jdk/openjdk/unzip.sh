@@ -19,6 +19,9 @@ file=$1
 if [[ "$(isPathExists "$OPENJDK_DIR" eq "true" )" ]]; then
   jdk_version=$(getOpenJdkVersion $file)
   # FIXME: Doesn't untar when the file doesn't exist.
-  tar -xzvf "$DOWNLOADS_DIR/$file" -C $OPENJDK_DIR
-  mv "$DOWNLOADS_DIR/$file" "$UNZIPPED_DIR"
+  exists=$(isFileExists "$DOWNLOADS_DIR/$filenameFromUrl")
+  if [[ -z "$exists" ]]; then
+    tar -xzvf "$DOWNLOADS_DIR/$file" -C $OPENJDK_DIR
+    mv "$DOWNLOADS_DIR/$file" "$UNZIPPED_DIR"
+  fi
 fi
