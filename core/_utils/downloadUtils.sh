@@ -45,10 +45,10 @@ _isSoftwareAlreadyDownloaded() {
 }
 #$1 URL of the file to download
 _isSoftwareAlreadyUntarred() {
-    _wgetToTmpDir $1
+    #_wgetToTmpDir $1
     local targzFile=$(getFilenameFromAbsolutePath $1)
     local pathToTargzFile=$TMP_DIR/$targzFile
-    untarIntoTmpDir $pathToTargzFile
+    #untarIntoTmpDir $pathToTargzFile
     mv $pathToTargzFile $TMP_DIR/.$targzFile
     local untarredFolder=$(getLastFileFromPath "$TMP_DIR")
     local pathToUntarredFileTmp=$TMP_DIR/$untarredFolder
@@ -96,24 +96,20 @@ execute() {
     echo
     if ! [[ $REPLY =~ ^[Yy]$ ]]; then
         echo $software "download is cancelled."
-        exit
     else
-        _createDownloadsFolderStructure
-        local url=$1
-        local filename=$(getFilenameFromUrl $url)
-        local result="$(_isSoftwareAlreadyDownloaded $filename)"
-        if [[ "$result" == $CONST_DOWNLOADED ]]; then
-            echo "Software already downloaded. Just untar it."
-            exit
-        elif [[ "$result" == $CONST_ARCHIVED ]]; then
-            echo "Software already archived. Please move it to downloads folder to be untarred."
-            exit
+        local result=$(_isSoftwareAlreadyUntarred $url)
+        echo MIAOUUUUUUUUUUUU $result
+        if [[ "$result" == "$CONST_UNTARRED" ]]; then
+            echo "Software already installed."
         else
-            local result=$(_isSoftwareAlreadyUntarred $url)
-            echo $result
-            if [[ "$result" == "$CONST_UNTARRED" ]]; then
-                echo "Software already installed."
-                exit
+            _createDownloadsFolderStructure
+            local url=$1
+            local filename=$(getFilenameFromUrl $url)
+            local result="$(_isSoftwareAlreadyDownloaded $filename)"
+            if [[ "$result" == $CONST_DOWNLOADED ]]; then
+                echo "Software already downloaded. Just untar it."
+            elif [[ "$result" == $CONST_ARCHIVED ]]; then
+                echo "Software already archived. Please move it to downloads folder to be untarred."
             else
                 echo "Software downloaded."
             fi
